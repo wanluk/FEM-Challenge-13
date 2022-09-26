@@ -1,0 +1,217 @@
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role='list'],
+ol[role='list'] {
+  list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+   scroll-behavior: auto;
+  }
+  
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ---------------------------- */
+
+:root{
+    --P-mainBG:hsl(233, 47%, 7%);
+    --P-cardBG:hsl(244, 38%, 16%);
+    --P-softViolet-Accent:hsl(277, 64%, 61%);
+
+    --n-white:hsl(0, 0%, 100%);
+}
+
+.fw-400{font-weight: 400;}
+.fw-700{font-weight: 700;}
+
+.fs-fo-infoParagraph{font-size: 1rem; opacity: 75%;}
+.fs-fo-factParagraph{font-size: 0.75rem; opacity: 60%;}
+
+/* general styling */
+
+body{
+    background-color: var(--P-mainBG);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card{
+    background-color: var(--P-cardBG);
+    border-radius: 0.5rem;
+    width: 20.5rem;
+}
+
+.top-or-right{
+    background-color: var(--P-softViolet-Accent);
+    border-radius: 8px 8px 0px 0px;
+}
+
+.mobileIMG{
+    opacity: 75%;
+    mix-blend-mode: multiply;
+}
+
+.desktopIMG{
+    display: none;
+}
+
+.bottom-or-left{
+    padding: 2.5rem 1.75rem 2rem 1.75rem;
+}
+
+@media (min-width: 1200px) {
+    .card{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        width: 1110px;
+    }
+
+    .mobileIMG{
+        display: none;
+    }
+
+    .desktopIMG{
+        display: block;
+        min-height: 100%;
+        min-width: 100%;
+        opacity: 75%;
+        mix-blend-mode: multiply;
+    }
+
+    .top-or-right{
+        border-radius: 0 8px 8px 0;
+        grid-column-start: 2;
+        grid-column-end: 2;
+    }
+
+    .bottom-or-left{
+        grid-column-start: 1;
+        grid-column-end: 1;
+        grid-row-start: 1;
+
+        padding: 4.5rem 5.9rem 3.75rem 4.5rem;
+    }
+}
+
+/* typography */
+
+.card{
+    font-family: 'Inter', sans-serif;
+    color: var(--n-white);
+    text-align: center;
+}
+
+.facts-paragraph{
+    font-family: 'Lexend Deca', sans-serif;
+}
+
+h1{
+    font-size: 1.75rem;
+}
+
+span{
+    color: var(--P-softViolet-Accent);
+}
+
+h2{
+    font-size: 1.5rem;
+}
+
+@media (min-width: 1200px) {
+    .card{
+        text-align: left;
+    }
+
+    h1{
+        font-size: 2.25rem;
+    }
+}
+
+/* bottom or left */
+
+.fs-fo-infoParagraph{
+    margin-top: 1rem;
+}
+
+.facts{
+    margin-top: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+@media (min-width: 1200px) {
+    .fs-fo-infoParagraph{
+      margin-top: 1.5rem;  
+    }
+
+    .facts{
+        margin-top: 4.5rem;
+        display: flex;
+        flex-direction: row;
+        gap:4rem;
+    }
+}
